@@ -33,6 +33,7 @@ It always annoys me when I start to write a new paper and I have use an old pape
     + `abstract.tex`: abstract
     + `definitions.tex`: glossary, acronyms, and notation
     + `text.tex`: article body
+    + `references.bib`: sample bib file
 
 ## Versions
 
