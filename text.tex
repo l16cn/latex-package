@@ -1,0 +1,53 @@
+% !TEX root =  main.tex
+
+\paragraph{Notation}
+Insert manuscript body here. Use \verb|\gls{\cdot}| for
+repeated glossary, acronym, and notation items, 
+e.g.,~use \verb|\gls{abm}| for the first time,
+you get ``\gls{abm}.'' Use it again, you get ``\gls{abm}.''
+Similarly, you can use it on glossary items 
+(e.g.,~use \verb|\glspl{al}| for plural ``\glspl{al}'')
+and mathematical notations 
+(e.g.,~use \verb|\gls{state}| or \verb|$\gls{state}$|
+for \gls{state}).
+
+\paragraph{Multi-line equation}
+Proper way to handle multi-line equations:
+\begin{verbatim}
+\begin{equation}
+  \begin{aligned}
+    x(t+1)&=Ax(t)+Bu(t)+\omega(t),\\
+    y(t)&=Cx(t)+Du(t)+\nu(t).
+  \end{aligned}
+\end{equation}
+\end{verbatim}
+See output:
+\begin{equation}
+  \begin{aligned}
+    x(t+1)&=Ax(t)+Bu(t)+\omega(t),\\
+    y(t)&=Cx(t)+Du(t)+\nu(t).
+  \end{aligned}
+\end{equation}
+
+\paragraph{Citation} Use \verb|\cite{}| or \verb|\citep{}|
+depending on the environment.
+
+\paragraph{Root} Insert the following at the beginning
+of every sub-file (replace \verb|<main file name>|)
+with the main file name you use:
+\begin{verbatim}
+	% !TEX root =  <main file name>.tex
+\end{verbatim}
+
+
+
+
+
+
+
+
+
+
+
+
+
