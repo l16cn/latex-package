@@ -37,6 +37,12 @@ It always annoys me when I start to write a new paper and I have use an old pape
 
 ## Versions
 
+#### 0.22 (2017-07-20)
+
+- Added `draft` option with watermark "Confidential" on every page
+- Improved `hidegraphics`
+- Added a new command `\vecfig` that imports TikZ codes
+
 #### 0.19 (2017-06-07)
 
 - Last version before I created this repository
