@@ -1,7 +1,28 @@
-% !TEX root =  main.tex
+% !TEX root =  journal_main.tex
 
-\paragraph{Notation}
-Insert manuscript body here. Use \verb|\gls{\cdot}| for
+\section{Package options}
+\begin{itemize}
+	\item \verb|\usepackage{l16cn}|: default
+	\item \verb|\usepackage[hidegraphics]{l16cn}|: graphics 
+	(pictures, tikz figures, pdfs won't be loaded).
+	\item \verb|\usepackage[draft]{l16cn}|: add ``Confidential'' watermark
+\end{itemize}
+
+\section{File structure}
+\begin{itemize}
+	\item Main file: \verb|journal_main.tex|
+	\item Sub-files:
+	\begin{itemize}
+		\item Abstract: \verb|abstract.tex|
+		\item Glossary: \verb|definitions.tex|
+		\item Bibliography: \verb|references.bib|
+	\end{itemize}
+\end{itemize}
+
+\section{Notation}
+\verb|definitions.tex| contains all the 
+definitions, acronyms, and notations.
+Use \verb|\gls{ }| for
 repeated glossary, acronym, and notation items, 
 e.g.,~use \verb|\gls{abm}| for the first time,
 you get ``\gls{abm}.'' Use it again, you get ``\gls{abm}.''
@@ -11,7 +32,7 @@ and mathematical notations
 (e.g.,~use \verb|\gls{state}| or \verb|$\gls{state}$|
 for \gls{state}).
 
-\paragraph{Multi-line equation}
+\section{Multi-line equation}
 Proper way to handle multi-line equations:
 \begin{verbatim}
 \begin{equation}
@@ -29,14 +50,24 @@ See output:
   \end{aligned}
 \end{equation}
 
-\paragraph{Citation} Use \verb|\cite{}| or \verb|\citep{}|
-depending on the environment.
+\section{Citation} 
+\verb|references.bib| contains all the references.
+Use \verb|\cite{}| for journal 
+and \verb|\citep{}| for book.
+For instance, \verb|\cite{galton1907vox}|
+would return a numbered citation like this: \cite{galton1907vox}.
+Numbered citations should be good for most journals.
 
-\paragraph{Root} Insert the following at the beginning
+\section{Root} Insert the following at the beginning
 of every sub-file (replace \verb|<main file name>|)
 with the main file name you use:
 \begin{verbatim}
 	% !TEX root =  <main file name>.tex
+\end{verbatim}
+For instance, if your main file is \verb|journal_main.tex|,
+write the following at the first line of every sub-file:
+\begin{verbatim}
+	% !TEX root =  journal_main.tex
 \end{verbatim}
 
 
