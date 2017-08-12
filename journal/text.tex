@@ -1,4 +1,4 @@
-% !TEX root =  journal_main.tex
+% !TEX root =  journal_template.tex
 
 \section{Package options}
 \begin{itemize}
@@ -10,13 +10,13 @@
 
 \section{File structure}
 \begin{itemize}
-	\item Main file: \verb|journal_main.tex|
+	\item Main file: \verb|journal_template.tex|
 	\item Sub-files:
 	\begin{itemize}
+		\item Body: \verb|text.tex|
 		\item Abstract: \verb|abstract.tex|
 		\item Glossary: \verb|definitions.tex|
 		\item Bibliography: \verb|references.bib|
-		\item Main text: \verb|text.tex|
 	\end{itemize}
 \end{itemize}
 
@@ -81,8 +81,8 @@ To hide the highlight, use the \verb|nohl| package option.
 
 \section{Citation} 
 \verb|references.bib| contains all the references.
-Use \verb|\cite{}| for journal 
-and \verb|\citep{}| for book.
+Use \verb|\cite{ }| for journal 
+and \verb|\citep{ }| for book.
 For instance, \verb|\cite{galton1907vox}|
 would return a numbered citation like this: \cite{galton1907vox}.
 Numbered citations should be good for most journals.
@@ -96,7 +96,7 @@ with the main file name you use:
 For instance, if your main file is \verb|journal_main.tex|,
 write the following at the first line of every sub-file:
 \begin{verbatim}
-	% !TEX root =  journal_main.tex
+	% !TEX root =  journal_template.tex
 \end{verbatim}
 
 

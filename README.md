@@ -8,8 +8,8 @@ It always annoys me when I start to write a new paper and I have use an old pape
 ## Compatible Document Classes
 
 - Journal: based on the `IEEEtran` class
-    + Template: `./journal/`
-    + **User manual: `./journal/journal_main.pdf`**
+    + Template directory: `./journal/`
+    + **User manual: `./journal/journal_template.pdf`**
 - Other (incomplete):
     + Report
     + Book
