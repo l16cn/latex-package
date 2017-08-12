@@ -3,8 +3,8 @@
 \section{Package options}
 \begin{itemize}
 	\item \verb|\usepackage{l16cn}|: default
-	\item \verb|\usepackage[hidegraphics]{l16cn}|: graphics 
-	(pictures, tikz figures, pdfs won't be loaded).
+	\item \verb|\usepackage[nopic]{l16cn}|: hide pictures (for faster compilation)
+	\item \verb|\usepackage[nohl]{l16cn}|: hide highlights
 	\item \verb|\usepackage[draft]{l16cn}|: add ``Confidential'' watermark
 \end{itemize}
 
@@ -50,6 +50,33 @@ See output:
     y(t)&=Cx(t)+Du(t)+\nu(t).
   \end{aligned}
 \end{equation}
+
+\section{Figure}
+
+Insert figure (below) and hide figure with the \verb|nopic| option.
+
+\begin{figure}[h!]
+   \centering
+   \includegraphics
+   	[width=0.5\linewidth]{figs/dice.png}
+   \caption{Dice}
+   \label{fig:dice}
+\end{figure}
+
+\begin{verbatim}
+\begin{figure}[htbp]
+   \centering
+   \includegraphics
+   	[width=\linewidth]{figs/dice.png}
+   \caption{Dice}
+   \label{fig:dice}
+\end{figure}
+\end{verbatim}
+
+\section{Highlight}
+You can \hl{highlight} certain words with the \verb|\hl{ }| code. 
+To hide the highlight, use the \verb|nohl| package option.
+
 
 \section{Citation} 
 \verb|references.bib| contains all the references.

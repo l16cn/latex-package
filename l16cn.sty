@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[07/20/2017 version 0.22 The Luo Yu Package]
+\ProvidesPackage{custom}[08/12/2017 version 0.23 The Luo Yu Package]
 % use 'hidegraphics' option to hide graphics and accelerate compilation
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
@@ -16,6 +16,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{hyperref} %@l16cn (4/27/17): Enable hyperref before glossaries
 \RequirePackage{pdfpages}	
+\RequirePackage{soul} % @l16cn (4/26/17): for highlight
 \RequirePackage{thmtools}
 \RequirePackage{tikz,tikz-qtree} % shape tools
 	% tikz preferences
@@ -35,9 +36,20 @@
 %% 'hidegraphics' option: hide graphics for faster compilation
 \newcommand{\vecfig}[1]{\begin{adjustbox}{max width = \linewidth}\input{#1}\end{adjustbox}} %17-07-20
 \DeclareOption{hidegraphics}{
-  	\renewcommand{\includegraphics}[2][]{[hidden figure]}
+%  	\renewcommand{\includegraphics}[2][]{[hidden figure]}
+	\setkeys{Gin}{draft=true} % 2017-08-12
 	\renewcommand{\includepdf}[2][]{[hidden pdf]}
 	\renewcommand{\vecfig}[1]{} %2017-07-20
+}
+\DeclareOption{nopic}{
+	\setkeys{Gin}{draft=true} % 2017-08-12
+	\renewcommand{\includepdf}[2][]{[hidden pdf]}
+	\renewcommand{\vecfig}[1]{} %2017-07-20
+}
+
+% 2017-08-12
+\DeclareOption{nohl}{
+	\renewcommand\hl[1]{#1} % activate to remove highlights
 }
 
 % 2017-07-20
@@ -120,7 +132,6 @@
 		\setlength\stripsep{3pt plus 1pt minus 1pt}
 %	\RequirePackage{dblfloatfix}
 %	\RequirePackage{fixltx2e}
-	\RequirePackage{soul} % @l16cn (4/26/17): for highlight
 %	\RequirePackage{stfloats}
 	\RequirePackage{url}
 }{}
