@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[08/12/2017 version 0.24 The Luo Yu Package]
+\ProvidesPackage{custom}[08/30/2017 version 0.25 The Luo Yu Package]
 % use 'hidegraphics' option to hide graphics and accelerate compilation
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
@@ -17,6 +17,11 @@
 \RequirePackage{hyperref} %@l16cn (4/27/17): Enable hyperref before glossaries
 \RequirePackage{pdfpages}	
 \RequirePackage{soul} % @l16cn (4/26/17): for highlight
+    \soulregister\cite7 %2017-08-30: highlight \cite and other mbox
+    \soulregister\ref7
+    \soulregister\eqref7
+    \soulregister\gls7
+    \soulregister\pageref7
 \RequirePackage{thmtools}
 \RequirePackage{tikz,tikz-qtree} % shape tools
 	% tikz preferences
