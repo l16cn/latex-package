@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[10/10/2017 version 0.26 The Luo Yu Package]
+\ProvidesPackage{custom}[10/10/2017 version 0.27 The Luo Yu Package]
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -36,6 +36,12 @@
 \RequirePackage{verbatim}
 \RequirePackage{ifthen}
 \RequirePackage{xifthen}
+
+% @l16cn (2017-10-10): moved glossaries out of NON-BEAMER block
+% @l16cn (4/24/2017): moved glossaries inside this chunk
+\RequirePackage[acronyms,toc,indexonlyfirst]{glossaries} % @l16cn (4/3/2017): print glossary, acronyms, and notation @l16cn (4/11/2017): added ``indexonlyfirst''
+	\setacronymstyle{long-short}
+	\newglossary[nlg]{notation}{not}{ntn}{Notation}
 
 %% 'hidegraphics' option: hide graphics for faster compilation
 \newcommand{\vecfig}[1]{\begin{adjustbox}{max width = \linewidth}\input{#1}\end{adjustbox}} %17-07-20
@@ -89,12 +95,7 @@
 
 	\newcommand<>{\hlonly}[1]{{\only#2\hl{#1}}} % highlight on slide <#2> only
 	\newcommand<>{\hlonlytxt}[1]{{\only#2\hltxt{#1}}} % highlight on slide <#2> only
-}{
-	% @l16cn (4/24/2017): moved glossaries inside this chunk
-	\RequirePackage[acronyms,toc,indexonlyfirst]{glossaries} % @l16cn (4/3/2017): print glossary, acronyms, and notation @l16cn (4/11/2017): added ``indexonlyfirst''
-		\setacronymstyle{long-short}
-		\newglossary[nlg]{notation}{not}{ntn}{Notation}
-}
+}{}
 
 %%%%% REPORT or BOOK %%%%%
 \ifthenelse{\boolean{report_class} \OR \boolean{book_class}}{
