@@ -1,7 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[08/30/2017 version 0.25 The Luo Yu Package]
-% use 'hidegraphics' option to hide graphics and accelerate compilation
+\ProvidesPackage{custom}[10/10/2017 version 0.26 The Luo Yu Package]
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -77,7 +76,7 @@
 % 2017-07-20
 \RequirePackage[\draftopt]{draftwatermark}\SetWatermarkText{Confidential}
 		
-%% Customization for the 'beamer' class
+%%%%% BEAMER %%%%%
 \ifthenelse{\boolean{beamer_class}}
 {
 	\RequirePackage{appendixnumberbeamer}
@@ -85,7 +84,7 @@
 	\newcommand{\highlight}[1]{\colorbox{yellow}{$\displaystyle #1$}}
 	\newcommand{\highlighttxt}[1]{\colorbox{yellow}{#1}}
 
-	\newcommand{\hl}[1]{\highlight{#1}}
+	\renewcommand{\hl}[1]{\highlight{#1}}
 	\newcommand{\hltxt}[1]{\highlighttxt{#1}}
 
 	\newcommand<>{\hlonly}[1]{{\only#2\hl{#1}}} % highlight on slide <#2> only
@@ -96,7 +95,8 @@
 		\setacronymstyle{long-short}
 		\newglossary[nlg]{notation}{not}{ntn}{Notation}
 }
-% article, book, or report
+
+%%%%% REPORT or BOOK %%%%%
 \ifthenelse{\boolean{report_class} \OR \boolean{book_class}}{
 	\RequirePackage[titletoc]{appendix} % @l16cn (1/24): titletoc shows Appendix A, Appendix B, ...	   
 	\RequirePackage{longtable} % for notation
@@ -113,22 +113,27 @@
     \newtheorem{conjecture}[theorem]{Conjecture}
 	\renewcommand{\listtheoremname}{List of Theorems and Definitions} 
 }{
-%@l16cn (5/4/17): Added for other classes
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\newtheorem{assumption}{Assumption}
-\newtheorem{lemma}{Lemma}
-\newtheorem{conjecture}{Conjecture}
+	%@l16cn (2017-10-10): Beamer seems to already include the theorem command
+	\ifthenelse{\NOT \boolean{beamer_class}}{
+        %@l16cn (5/4/17): Added for other classes
+        \theoremstyle{plain}
+        \newtheorem{theorem}{Theorem}
+        \theoremstyle{definition}
+        \newtheorem{definition}{Definition}
+        \newtheorem{assumption}{Assumption}
+        \newtheorem{lemma}{Lemma}
+        \newtheorem{conjecture}{Conjecture}	
+	}{}
 }
 
+%%%%% BOOK %%%%%
 \ifthenelse{\boolean{book_class}}
 {
 %	\RequirePackage{hyperref}
 	\RequirePackage[round]{natbib} % @l16cn (4/3/2017): for bibliography	
 }{}
 
+%%%%% JOURNAL %%%%%
 \ifthenelse{\boolean{ieee_class}} % @l16cn (4/6/2017)
 {
 %	\RequirePackage{array}
@@ -140,7 +145,6 @@
 %	\RequirePackage{stfloats}
 	\RequirePackage{url}
 }{}
-
 
 %% Math shortcuts @l16cn (4/10/17): added \ensuremath so $\bx$ and \bx both would work
 \def\d{\ensuremath\mathrm{d}} %@l16cn (4/24/17)
