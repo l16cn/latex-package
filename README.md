@@ -7,13 +7,12 @@ It always annoys me when I start to write a new paper and I have use an old pape
 
 ## Compatible Document Classes
 
-- Journal: based on the `IEEEtran` class
-    + Template directory: `./journal/`
-    + **User manual: `./journal/journal_template.pdf`**
-- Other (incomplete):
+- Templates: [`./templates/`](templates/)
+    + Journal: based on the `IEEEtran` class
+    + Beamer: based on the `beamer` class (with a CRIS-Lab style)
+- Other (under construction):
     + Report
     + Book
-    + Beamer
     + R markdown
 
 ## Versions
