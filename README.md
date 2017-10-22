@@ -17,7 +17,7 @@ It always annoys me when I start to write a new paper and I have use an old pape
 
 ## Versions
 
-#### 0.25 (2017-10-22)
+#### 0.27 (2017-10-22)
 
 - Added a beamer template and cleaned up the files
 
