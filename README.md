@@ -18,6 +18,10 @@ It always annoys me when I start to write a new paper and I have use an old pape
 
 ## Versions
 
+#### 0.25 (2017-10-22)
+
+- Added a beamer template and cleaned up the files
+
 #### 0.24 (2017-08-12)
 
 - Defined a new macro `\red{ }` that changes text color to red
