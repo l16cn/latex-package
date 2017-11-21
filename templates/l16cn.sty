@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[10/10/2017 version 0.27 The Luo Yu Package]
+\ProvidesPackage{custom}[11/20/2017 version 0.28 The Luo Yu Package]
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -12,8 +12,8 @@
 \RequirePackage{caption}
 \RequirePackage{color}
 \RequirePackage{geometry}
+%2017-11-20: hyperref used to be here
 \RequirePackage{graphicx}
-\RequirePackage{hyperref} %@l16cn (4/27/17): Enable hyperref before glossaries
 \RequirePackage{pdfpages}	
 \RequirePackage{soul} % @l16cn (4/26/17): for highlight
     \soulregister\cite7 %2017-08-30: highlight \cite and other mbox
@@ -36,12 +36,6 @@
 \RequirePackage{verbatim}
 \RequirePackage{ifthen}
 \RequirePackage{xifthen}
-
-% @l16cn (2017-10-10): moved glossaries out of NON-BEAMER block
-% @l16cn (4/24/2017): moved glossaries inside this chunk
-\RequirePackage[acronyms,toc,indexonlyfirst]{glossaries} % @l16cn (4/3/2017): print glossary, acronyms, and notation @l16cn (4/11/2017): added ``indexonlyfirst''
-	\setacronymstyle{long-short}
-	\newglossary[nlg]{notation}{not}{ntn}{Notation}
 
 %% 'hidegraphics' option: hide graphics for faster compilation
 \newcommand{\vecfig}[1]{\begin{adjustbox}{max width = \linewidth}\input{#1}\end{adjustbox}} %17-07-20
@@ -78,9 +72,28 @@
 	\@ifclassloaded{report}{\setboolean{report_class}{true}}{\setboolean{report_class}{false}}
 \newboolean{ieee_class}
 	\@ifclassloaded{IEEEtran}{\setboolean{ieee_class}{true}}{\setboolean{ieee_class}{false}}	
+\newboolean{resume_class}
+	\@ifclassloaded{resume}{\setboolean{resume_class}{true}}{\setboolean{resume_class}{false}}		
 
 % 2017-07-20
 \RequirePackage[\draftopt]{draftwatermark}\SetWatermarkText{Confidential}
+
+%%%%% RESUME %%%%% introduced on 2017-11-20
+\ifthenelse{\boolean{resume_class}}
+{
+	%2017-11-20: add citation to resume class without the bibliography in the end
+    \usepackage{bibentry}
+    \nobibliography*
+}{
+	%2017-11-20: for all other classes, use hyperref (conflict with bibentry) and engure it is imported before glossaries
+    \RequirePackage{hyperref} %@l16cn (4/27/17): Enable hyperref before glossaries
+    % @l16cn (2017-10-10): moved glossaries out of NON-BEAMER block
+    % @l16cn (4/24/2017): moved glossaries inside this chunk
+    \RequirePackage[acronyms,toc,indexonlyfirst]{glossaries} % @l16cn (4/3/2017): print glossary, acronyms, and notation @l16cn (4/11/2017): added ``indexonlyfirst''
+    	\setacronymstyle{long-short}
+    	\newglossary[nlg]{notation}{not}{ntn}{Notation}
+
+}
 		
 %%%%% BEAMER %%%%%
 \ifthenelse{\boolean{beamer_class}}
