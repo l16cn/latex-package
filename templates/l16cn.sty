@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[11/20/2017 version 0.28 The Luo Yu Package]
+\ProvidesPackage{custom}[11/28/2017 version 0.29 The Luo Yu Package]
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -74,9 +74,16 @@
 	\@ifclassloaded{IEEEtran}{\setboolean{ieee_class}{true}}{\setboolean{ieee_class}{false}}	
 \newboolean{resume_class}
 	\@ifclassloaded{resume}{\setboolean{resume_class}{true}}{\setboolean{resume_class}{false}}		
+\newboolean{letter_class}
+	\@ifclassloaded{letter}{\setboolean{letter_class}{true}}{\setboolean{letter_class}{false}}			
 
 % 2017-07-20
 \RequirePackage[\draftopt]{draftwatermark}\SetWatermarkText{Confidential}
+
+%%%%% No hyperref for LETTER or RESUME %%%%% 2017-11-28
+\ifthenelse{\NOT\boolean{resume_class} \AND \NOT\boolean{letter_class}}{
+    \RequirePackage{hyperref} %@l16cn (4/27/17): Enable hyperref before glossaries
+}{}
 
 %%%%% RESUME %%%%% introduced on 2017-11-20
 \ifthenelse{\boolean{resume_class}}
@@ -86,7 +93,6 @@
     \nobibliography*
 }{
 	%2017-11-20: for all other classes, use hyperref (conflict with bibentry) and engure it is imported before glossaries
-    \RequirePackage{hyperref} %@l16cn (4/27/17): Enable hyperref before glossaries
     % @l16cn (2017-10-10): moved glossaries out of NON-BEAMER block
     % @l16cn (4/24/2017): moved glossaries inside this chunk
     \RequirePackage[acronyms,toc,indexonlyfirst]{glossaries} % @l16cn (4/3/2017): print glossary, acronyms, and notation @l16cn (4/11/2017): added ``indexonlyfirst''
