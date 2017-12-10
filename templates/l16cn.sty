@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[11/28/2017 version 0.29 The Luo Yu Package]
+\ProvidesPackage{custom}[12/10/2017 version 0.30 The Luo Yu Package]
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -211,6 +211,7 @@
 	}
 	
 \def\red#1{\textcolor{red}{#1}} % 2017-08-12
+\newcommand{\ins}[1]{\input{#1}\unskip} % 2017-12-10
 
 \newcommand{\al}[1]{\begin{equation}\begin{aligned} #1 \end{aligned}\end{equation}}
 \newcommand{\eq}[1]{\begin{equation} #1 \end{equation}}
