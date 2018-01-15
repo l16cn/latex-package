@@ -2,6 +2,8 @@
 
 \section{Package options}
 \begin{itemize}
+	\item \verb|\documentclass[journal,onecolumn]{IEEEtran}|: manuscript draft
+	\item \verb|\documentclass[journal]{IEEEtran}|: IEEE journal format
 	\item \verb|\usepackage{l16cn}|: default
 	\item \verb|\usepackage[nopic]{l16cn}|: hide pictures (for faster compilation)
 	\item \verb|\usepackage[nohl]{l16cn}|: hide highlights
@@ -20,13 +22,20 @@
 	\end{itemize}
 \end{itemize}
 
-\section{Notation}
+\section{Glossary}
 \verb|definitions.tex| contains all the 
-definitions, acronyms, and notations.
-Use \verb|\gls{ }| for
-repeated glossary, acronym, and notation items, 
-e.g.,~use \verb|\gls{abm}| for the first time,
-you get ``\gls{abm}.'' Use it again, you get ``\gls{abm}.''
+glossary, acronym, and notation items.
+Use \verb|\gls{ }| for frequently used terms.
+Example:
+\begin{verbatim}
+An \gls{abm} is a class of computational models; \glspl{abm} 
+are typically implemented as computer simulations.
+\end{verbatim}
+See output:
+\begin{quote}
+An \gls{abm} is a class of computational models; \glspl{abm} 
+are typically implemented as computer simulations.
+\end{quote}
 Similarly, you can use it on glossary items 
 (e.g.,~use \verb|\glspl{al}| for plural ``\glspl{al}'')
 and mathematical notations 
@@ -93,7 +102,7 @@ with the main file name you use:
 \begin{verbatim}
 	% !TEX root =  <main file name>.tex
 \end{verbatim}
-For instance, if your main file is \verb|journal_main.tex|,
+For instance, if your main file is \verb|journal_template.tex|,
 write the following at the first line of every sub-file:
 \begin{verbatim}
 	% !TEX root =  journal_template.tex
