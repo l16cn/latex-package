@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[02/01/2018 version 0.31 The Luo Yu Package]
+\ProvidesPackage{custom}[02/02/2018 version 0.32 The Luo Yu Package]
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -96,7 +96,7 @@
     % @l16cn (2017-10-10): moved glossaries out of NON-BEAMER block
     % @l16cn (4/24/2017): moved glossaries inside this chunk
     \RequirePackage[acronyms,toc,indexonlyfirst]{glossaries} % @l16cn (4/3/2017): print glossary, acronyms, and notation @l16cn (4/11/2017): added ``indexonlyfirst''
-    	\setacronymstyle{long-short}
+%    	\setacronymstyle{long-short} %2018-02-02: this line overrides the user-specified plural acronyms
     	\newglossary[nlg]{notation}{not}{ntn}{Notation}
 
 }
