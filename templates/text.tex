@@ -1,18 +1,25 @@
-% !TEX root =  journal_template.tex
+% !TEX root = journal_elsevier.tex
 
-\section{Package options}
+\section{Preamble}
 \begin{itemize}
-	\item \verb|\documentclass[journal,onecolumn]{IEEEtran}|: manuscript draft
-	\item \verb|\documentclass[journal]{IEEEtran}|: IEEE journal format
-	\item \verb|\usepackage{l16cn}|: default
-	\item \verb|\usepackage[nopic]{l16cn}|: hide pictures (for faster compilation)
-	\item \verb|\usepackage[nohl]{l16cn}|: hide highlights
-	\item \verb|\usepackage[draft]{l16cn}|: add ``Confidential'' watermark
+	\item Document class
+	\begin{itemize}
+		\item \verb|\documentclass[review]{elsarticle}|: Elsevier manuscript draft
+		\item \verb|\documentclass[journal,onecolumn]{IEEEtran}|: IEEE manuscript draft
+		\item \verb|\documentclass[journal]{IEEEtran}|: IEEE journal format
+	\end{itemize}
+	\item Package options
+	\begin{itemize}
+		\item \verb|\usepackage{l16cn}|: default
+		\item \verb|\usepackage[nopic]{l16cn}|: hide pictures (for faster compilation)
+		\item \verb|\usepackage[nohl]{l16cn}|: hide highlights
+		\item \verb|\usepackage[draft]{l16cn}|: add ``Confidential'' watermark
+	\end{itemize}	
 \end{itemize}
 
 \section{File structure}
 \begin{itemize}
-	\item Main file: \verb|journal_template.tex|
+	\item Main file: \verb|journal_elsevier.tex| or \verb|journal_ieee.tex|
 	\item Sub-files:
 	\begin{itemize}
 		\item Body: \verb|text.tex|
@@ -100,12 +107,12 @@ Numbered citations should be good for most journals.
 of every sub-file (replace \verb|<main file name>|)
 with the main file name you use:
 \begin{verbatim}
-	% !TEX root =  <main file name>.tex
+	
 \end{verbatim}
-For instance, if your main file is \verb|journal_template.tex|,
+For instance, if your main file is \verb|journal_elsevier.tex|,
 write the following at the first line of every sub-file:
 \begin{verbatim}
-	% !TEX root =  journal_template.tex
+	% !TEX root = journal_elsevier.tex
 \end{verbatim}
 
 

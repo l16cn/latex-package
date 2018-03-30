@@ -1,0 +1,54 @@
+\documentclass[review]{elsarticle}
+
+% Remove Elsevier's footer
+\makeatletter
+\def\ps@pprintTitle{%
+ \let\@oddhead\@empty
+ \let\@evenhead\@empty
+ \def\@oddfoot{}%
+ \let\@evenfoot\@oddfoot}
+\makeatother
+
+% Customized package(s)
+\usepackage{l16cn}
+\usepackage{lineno}
+
+% Load definition dictionary
+\loadglsentries{definitions}
+
+% Specify reference format
+\bibliographystyle{elsarticle-num}
+
+\begin{document}
+\begin{frontmatter}
+
+	% Title
+    \title{An Elsevier Article\footnote{Last updated: \today}}
+    
+    % Author names and addresses
+    \author[aff1]{Author 1}\ead{author1@aff1.edu}
+    \author[aff1,aff2]{Author 2}\ead{author2@aff2.edu}
+    \author[aff2]{Corresponding Author\corref{cor}}\cortext[cor]{Corresponding author}\ead{cor@aff2.edu}
+    
+    % Affiliation information
+    \address[aff1]{Affiliation 1 address}
+    \address[aff2]{Affiliation 2 address} 
+    
+    % Abstract
+    \begin{abstract}\input{abstract}\end{abstract}
+    
+    % Reset glossary after abstract so that acronyms will be reintroduced
+    \glsresetall
+
+\end{frontmatter}
+
+% Line number begins
+\linenumbers
+
+% Main text
+\input{text}
+
+% References
+\bibliography{references}
+
+\end{document}

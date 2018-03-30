@@ -8,7 +8,7 @@ It always annoys me when I start to write a new paper and I have use an old pape
 ## Compatible Document Classes
 
 - Templates: [`./templates/`](templates/)
-    + Journal: based on the `IEEEtran` class
+    + Journal: based on the `elsarticle` and `IEEEtran` classes
     + Beamer: based on the `beamer` class (with a CRIS-Lab style)
 - Other (under construction):
     + Report
@@ -16,6 +16,13 @@ It always annoys me when I start to write a new paper and I have use an old pape
     + R markdown
 
 ## Versions
+
+#### 2018-03-30
+
+- Latest package version: 0.33 (2018-02-08)
+    + More definitions
+    + Minor edits
+- Added Elsevier's article template for single column draft submission
 
 #### 0.27 (2017-10-22)
 
