@@ -1,12 +1,12 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[02/08/2018 version 0.33 The Luo Yu Package] 
+\ProvidesPackage{custom}[06/10/2018 version 0.34 The Luo Yu Package] 
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
 \RequirePackage{adjustbox}
 \RequirePackage{algorithm,algpseudocode}
-\RequirePackage{amsmath,amssymb,amsthm,bm}%2018-02-01: added `bm` package for bold symbols	
+%\RequirePackage{amsmath,amssymb,amsthm,bm}%2018-06-10: moved to boolean block, don't load it with letter
 \RequirePackage{booktabs}
 \RequirePackage{bbm}
 \RequirePackage{caption}
@@ -80,6 +80,11 @@
 % 2017-07-20
 \RequirePackage[\draftopt]{draftwatermark}\SetWatermarkText{Confidential}
 
+% 2018-06-10: only load AMS when it is not letter class
+\ifthenelse{\NOT\boolean{letter_class}}{
+	\RequirePackage{amsmath,amssymb,amsthm,bm}%2018-02-01: added `bm` package for bold symbols
+}
+
 %%%%% No hyperref for LETTER or RESUME %%%%% 2017-11-28
 \ifthenelse{\NOT\boolean{resume_class} \AND \NOT\boolean{letter_class}}{
     \RequirePackage{hyperref} %@l16cn (4/27/17): Enable hyperref before glossaries
@@ -135,7 +140,7 @@
 	\renewcommand{\listtheoremname}{List of Theorems and Definitions} 
 }{
 	%@l16cn (2017-10-10): Beamer seems to already include the theorem command
-	\ifthenelse{\NOT \boolean{beamer_class}}{
+	\ifthenelse{\NOT \boolean{beamer_class} \AND \NOT\boolean{letter_class}}{
         %@l16cn (5/4/17): Added for other classes
         \theoremstyle{plain}
         \newtheorem{theorem}{Theorem}
