@@ -1,0 +1,81 @@
+% !TEX root =  main.tex
+% Parameters
+\def\topy{3.5}
+\def\topheightback{0.1}%.1}
+\def\topheightfront{0.1}%.15}
+\def\neckradius{.75}
+\def\necky{1.75}
+\def\bottomy{-2}
+\def\bottomheightback{.5}
+\def\bottomheightfront{.75}
+\def\bottomradius{2}
+\def\arrowlength{1}
+\def\liquidloc{0.7}
+\pgfmathsetmacro\feedleftx{-\neckradius / 3}
+\def\feedheight{1}
+
+
+% Bottom
+\coordinate (bottom-left) at (-\bottomradius,\bottomy);
+\coordinate (bottom-right) at (\bottomradius,\bottomy);
+\draw (bottom-left) arc (180:360:{\bottomradius} and \bottomheightfront);
+
+% Neck
+\coordinate (neck-left) at (-\neckradius,\necky);
+\coordinate (neck-right) at (\neckradius,\necky);
+\draw (neck-left) -- (bottom-left);
+\draw (neck-right) -- (bottom-right);
+
+% Top
+\coordinate (top-left) at (-\neckradius,\topy);
+\coordinate (top-right) at (\neckradius,\topy);
+\draw (neck-left) -- (top-left);
+\draw (neck-right) -- (top-right);
+\draw (top-left) arc (180:0:{\neckradius} and \topheightback);
+\draw (top-left) arc (180:360:{\neckradius} and \topheightfront);
+%\fill[color=gray] 
+%	(top-left) --
+%	($(top-left)!0.05!(neck-left)$) arc (180:360:{\neckradius} and \topheightfront)
+%	--
+%	(top-right) arc (360:180:{\neckradius} and \topheightfront);
+
+%% Bottom fill
+%\fill[color=black] (bottom-left) arc (180:0:{\bottomradius} and \bottomheightback) 
+%(bottom-left) arc (180:360:{\bottomradius} and \bottomheightfront);
+
+% Sample
+\newcommand{\sample}[2]{
+\coordinate (sample) at ($(bottom-right) + (\feedheight,0)$);
+\draw[->,-latex,opacity=#1,#2] (bottom-right) -- (sample);
+\draw[opacity=#1,#2] (sample) node [right] {Sample};}
+
+% Feed 1
+\newcommand{\feedleft}[2]{
+\coordinate (feed-left) at (\feedleftx,\topy);
+\coordinate (feed-left-corner) at ($(feed-left) + (0,\feedheight)$);
+\coordinate (feed-left-start) at ($(feed-left-corner) - (\feedheight,0)$);
+\draw[->,-latex,opacity=#1,#2] (feed-left-start) -- (feed-left-corner) -- (feed-left);
+\draw[,opacity=#1,#2] (feed-left-start) node [left] {Feed 1};}
+
+% Feed 2
+\newcommand{\feedright}[2]{
+\coordinate (feed-right) at (-\feedleftx,\topy);
+\coordinate (feed-right-corner) at ($(feed-right) + (0,\feedheight)$);
+\coordinate (feed-right-start) at ($(feed-right-corner) + (\feedheight,0)$);
+\draw[->,-latex,opacity=#1,#2] (feed-right-start) -- (feed-right-corner) -- (feed-right);
+\draw[,opacity=#1,#2] (feed-right-start) node [right] {Feed 2};}
+	
+	
+% Liquid
+\newcommand{\liquidlevel}[3]{
+\pgfmathsetmacro\liquidradius{\neckradius * #1 + \bottomradius * (1 - #1)}
+\pgfmathsetmacro\liquidheightback{\topheightback * #1 + \bottomheightback * (1 - #1)}
+\pgfmathsetmacro\liquidheightfront{\topheightfront * #1 + \bottomheightfront * (1 - #1)}
+\coordinate (liquid-left) at ($(bottom-left)!{#1}!(neck-left)$);
+\coordinate (liquid-right) at ($(bottom-right)!{#1}!(neck-right)$);
+\fill[my-light-fill,opacity=#2,#3] 
+	(liquid-left) arc (180:0:{\liquidradius} and \liquidheightback) %-- %;
+ 	(liquid-left) arc (180:360:{\liquidradius} and \liquidheightfront);
+\fill[my-dark-fill,opacity=#2,#3] 
+	(bottom-left) -- (liquid-left) arc (180:360:{\liquidradius} and \liquidheightfront)
+	-- (bottom-right) arc (360:180:{\bottomradius} and \bottomheightfront);}

@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[06/10/2018 version 0.34 The Luo Yu Package] 
+\ProvidesPackage{custom}[09/26/2018 version 0.35 The Luo Yu Package] 
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -14,6 +14,7 @@
 \RequirePackage{geometry}
 %2017-11-20: hyperref used to be here
 \RequirePackage{graphicx}
+\RequirePackage{import} %2018-09-26
 \RequirePackage{pdfpages}	
 \RequirePackage{soul} % @l16cn (4/26/17): for highlight
     \soulregister\cite7 %2017-08-30: highlight \cite and other mbox
@@ -24,7 +25,7 @@
 \RequirePackage{thmtools}
 \RequirePackage{tikz,tikz-qtree} % shape tools
 	% tikz preferences
-	\usetikzlibrary{trees,shapes,arrows,fit}
+	\usetikzlibrary{trees,shapes,arrows,fit,calc} %2018-09-26: added calc
     \tikzset{
       invisible/.style={opacity=0},
       visible on/.style={alt={#1{}{invisible}}},
