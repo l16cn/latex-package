@@ -13,6 +13,8 @@
 % My color based on Columbia palette
 \definecolor{my-dark}{RGB}{25,58,111}
 \definecolor{my-light}{RGB}{142,180,227}
+\colorlet{my-blue-light}{my-light}
+\colorlet{my-blue-dark}{my-dark}
 \definecolor{my-red-light}{RGB}{252,15,26}
 \definecolor{my-red-dark}{RGB}{133,8,14}
 \definecolor{my-green-light}{RGB}{0,240,108}
@@ -21,6 +23,10 @@
 \definecolor{my-yellow-dark}{RGB}{120,150,0}
 \definecolor{abhi-blue}{RGB}{0,0.5,0.9}
 \colorlet{block-fill}{my-dark}
+
+% MATLAB
+\definecolor{matlab-blue}{RGB}{0,0.4470,0.7410}
+\definecolor{matlab-orange}{RGB}{0.8500,0.3250,0.0980}
 
 % Janssen
 \definecolor{jj-dark}{RGB}{9,53,122}
@@ -34,6 +40,7 @@
 % Fill
 \tikzstyle{my-dark-fill}=[top color=my-dark,bottom color=black,shading angle=45]%,color=white]
 \tikzstyle{my-light-fill}=[top color=my-light,bottom color=my-light!25!my-dark,shading angle=-45]%,color=white]
+\tikzstyle{my-blue-fill}=[top color=my-blue-light,bottom color=my-blue-dark,shading angle=45]
 \tikzstyle{my-red-fill}=[top color=my-red-light,bottom color=my-red-dark,shading angle=45]
 \tikzstyle{my-green-fill}=[top color=my-green-light,bottom color=my-green-dark,shading angle=45]
 \tikzstyle{my-yellow-fill}=[top color=my-yellow-light,bottom color=my-yellow-dark,shading angle=45]
