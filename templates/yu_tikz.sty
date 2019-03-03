@@ -1,3 +1,5 @@
+% Last updated: 2019-03-03
+
 % Tikz
 \newlength{\hdist}
 \setlength{\hdist}{1.5cm} % Horizontal node distance
@@ -19,3 +21,21 @@
 % Sugar size
 \newlength{\glyr}
 \setlength{\glyr}{1.25cm}
+
+% Global tikz settings
+\tikzset{
+	block/.style = {draw, thick, rectangle, minimum height=\blockh, minimum width=\blockw,my-dark-fill,text=white,node distance=\longhdist},
+  	gain/.style = {draw, thick, isosceles triangle, minimum height=\moduleh, my-red-fill,
+   		isosceles triangle apex angle=60},
+    port/.style = {inner sep=0pt, font=\small,text=black},
+    sum/.style n args = {4}{draw, thick, circle, node distance=\sumdist, minimum size=\moduleh, alias=sum,
+    my-green-fill,node distance=\longhdist,
+    	append after command={
+			node at (sum.north) [port, below=1pt] {$#1$}
+         	node at (sum.west) [port, right=1pt] {$#2$}
+          	node at (sum.south) [port, above=1pt] {$#3$}
+          	node at (sum.east) [port, left=1pt] {$#4$}
+        },
+    },
+  }
+\tikzstyle{every picture}=[auto, node distance=\vdist and \hdist,>=latex,ultra thick,line width = \linew]
