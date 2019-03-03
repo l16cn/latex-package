@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[02/28/2019 version 0.37 The Luo Yu Package] 
+\ProvidesPackage{custom}[03/03/2019 version 0.37b The Luo Yu Package] 
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -40,7 +40,7 @@
 \RequirePackage{xifthen}
 
 %% 'hidegraphics' option: hide graphics for faster compilation
-\newcommand{\vecfig}[1]{\begin{center}\begin{adjustbox}{max width = \linewidth}\input{#1}\end{adjustbox}\end{center}} %18-02-28: centering
+\newcommand{\vecfig}[1]{\centering\begin{adjustbox}{max width = \linewidth}\input{#1}\end{adjustbox}} %18-03-03: updated centering
 \DeclareOption{hidegraphics}{
 %  	\renewcommand{\includegraphics}[2][]{[hidden figure]}
 	\setkeys{Gin}{draft=true} % 2017-08-12
