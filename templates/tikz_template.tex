@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{tikz,import}
+\usetikzlibrary{calc}
+\usepackage{l16cn,yu_color,yu_tikz}
+\makenoidxglossaries
+\loadglsentries{definitions}
+
+% Uncomment to preview individual Tikz pictures: https://michaelgoerz.net/notes/creating-eps-files-from-tikz.html
+\usepackage[psfixbb,graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\newlength{\imagewidth}
+\newlength{\imagescale}
+
+\begin{document}
+
+%:Human-in-the-loop
+\begin{tikzpicture}
+
+	% Draw components
+    \node [block] (controller) {Human};
+	\node [gain, name=alpha, right of=controller] {};
+    \node [sum={+}{+}{}{}, right of=alpha] (sum-beta) {};
+    \node [block, right of=sum-beta] (system) {Process};
+    \node [name=disturbance, above of=system] {};        
+	\node [block, below of=system] (measurements) {Sensor};
+    \node [above of=controller, name=other advice] {Social feedback};    
+    \node [gain, name=other beta, right of=other advice] {};
+    \node [above of=system, name=disturbance] {Disturbance};
+    \node [below of=measurements, name=noise] {Noise};    
+    \node [block, below of=controller] (machine) {AI};    
+	
+    % Connect blocks
+    \draw [draw,->] (controller) -- (alpha);
+    \draw [draw,->] (alpha) -- (sum-beta);
+    \draw [draw, ->] (other advice) -- (other beta);     
+    \draw [draw,->] (other beta) -| (sum-beta);    
+    \draw [draw,->] (sum-beta) -- node [above, name=action] {} (system);
+	\draw [draw,->] (disturbance) -- (system);
+	\draw [->] (system) -- node [pos=0.5,left] {Output} (measurements);
+	\draw [->] (measurements) -- node [pos=0.5,above] {Data} (machine);
+	\draw [->] (machine) -- node [pos=0.5,right] {Recommendation} (controller);
+	\draw [->] (noise) -- (measurements);
+
+\end{tikzpicture}
+
+
+
+\end{document}
