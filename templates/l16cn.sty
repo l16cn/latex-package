@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[03/03/2019 version 0.37b The Luo Yu Package] 
+\ProvidesPackage{custom}[03/04/2019 version 0.38b The Luo Yu Package] 
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -11,7 +11,7 @@
 \RequirePackage{bbm}
 \RequirePackage{caption}
 \RequirePackage{color}
-\RequirePackage{geometry}
+%\RequirePackage{geometry} % disabled for IEEE
 %2017-11-20: hyperref used to be here
 \RequirePackage{graphicx}
 \RequirePackage{import} %2018-09-26
@@ -172,7 +172,9 @@
 %	\RequirePackage{fixltx2e}
 %	\RequirePackage{stfloats}
 	\RequirePackage{url}
-}{}
+}{
+\RequirePackage{geometry} % disabled for IEEE
+}
 
 %% Math shortcuts @l16cn (4/10/17): added \ensuremath so $\bx$ and \bx both would work
 \def\d{\ensuremath\mathrm{d}} %@l16cn (4/24/17)
