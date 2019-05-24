@@ -1,12 +1,12 @@
 \documentclass[mathserif,aspectratio=169
-,handout
+,handout % Comment the handout option to enable overlay
 ]{beamer}
-\usepackage{l16cn}
-\usepackage{yu_color,yu_style}
+\usepackage{l16cn,multicol,appendixnumberbeamer}
+\usepackage{yu_color,yu_style,yu_tikz}
 \makenoidxglossaries
 \loadglsentries{definitions}
 
-% Geometries
+% Two-column slide layout
 \def\leftcolumnwidth{0.75\linewidth} % Usually put text on the left and figures on the right
 \newcommand{\cols}[2]{
 \begin{columns}
@@ -28,16 +28,10 @@
 \institute[University of Delaware] % (optional)
 {
   \inst{1}%
-%  {Doctoral Advisor: Prof. Venkat Venkatasubramanian}\\
-%  {Co-Advisor: Prof. Garud Iyengar}\\
-%  \vspace{0.25cm}
-%  Complex Resilient Intelligent Systems Laboratory (CRIS lab)\\  
   Institution 1%\\
-%  Columbia University
   \and
   \inst{2}%
   Institution 2%\\
-%  Columbia University
 }
 \date[Date] % (optional)
 {Conference Name \rule[-0.4ex]{0.2ex}{1.2em} 
@@ -51,7 +45,7 @@ Location}
 \frame{\titlepage}
 
 \subimport{beamer-sections/}{0_Preamble}
-\placelogofalse
+\placelogofalse % Disable the display of logos
 
 \section{Introduction}
 \subimport{beamer-sections/}{1_Introduction}
