@@ -1,6 +1,6 @@
 % !TEX encoding = UTF-8 Unicode
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{custom}[10/10/2019 version 0.38b The Luo Yu Package] 
+\ProvidesPackage{custom}[10/12/2019 version 0.38b The Luo Yu Package] 
 % https://en.wikibooks.org/wiki/LaTeX/Creating_Packages
 
 %% Import packages for ALL classes
@@ -223,7 +223,7 @@
 	
 \def\red#1{\textcolor{red}{#1}} % 2017-08-12
 \newcommand{\ins}[1]{\input{#1}\unskip} % 2017-12-10
-\renewcommand{\note}[1]{\textcolor{blue!50!black}{\bf [#1]}} % 2019-10-10
+\providecommand{\note}[1]{\textcolor{blue!50!black}{\bf [#1]}} % 2019-10-12
 
 \newcommand{\al}[1]{\begin{equation}\begin{aligned} #1 \end{aligned}\end{equation}}
 \newcommand{\eq}[1]{\begin{equation} #1 \end{equation}}
