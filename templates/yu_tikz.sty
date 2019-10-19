@@ -1,8 +1,12 @@
-% Last updated: 2019-03-24 (added glycans)
+% Last updated: 2019-10-19 (adjust length for beamer)
 
 % Tikz
 \newlength{\hdist}
-\setlength{\hdist}{1.5cm} % Horizontal node distance
+\@ifclassloaded{beamer}
+{\setlength{\hdist}{3.5cm} % Horizontal node distance
+}
+{\setlength{\hdist}{1.5cm} % Horizontal node distance
+}
 \newlength{\vdist}
 \setlength{\vdist}{2\hdist} % Vertical node distance
 \newlength{\sumdist}
