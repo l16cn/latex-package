@@ -1,12 +1,11 @@
-% Last updated: 2019-10-19 (adjust length for beamer)
+% Last updated: 2019-10-22 (add 'poster' option for a different \hdist for beamer poster)
 
 % Tikz
 \newlength{\hdist}
-\@ifclassloaded{beamer}
-{\setlength{\hdist}{3.5cm} % Horizontal node distance
-}
-{\setlength{\hdist}{1.5cm} % Horizontal node distance
-}
+\setlength{\hdist}{1.5cm} % Horizontal 
+	\DeclareOption{poster}
+		{\setlength{\hdist}{3.5cm}}
+	\ProcessOptions\relax
 \newlength{\vdist}
 \setlength{\vdist}{2\hdist} % Vertical node distance
 \newlength{\sumdist}
