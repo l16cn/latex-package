@@ -1,4 +1,4 @@
-% Last updated: 2019-10-22 (add 'poster' option for a different \hdist for beamer poster)
+% Last updated: 2019-10-23 (apply \sffamily font to tikzpicture regardless of the document class)
 
 % Tikz
 \newlength{\hdist}
@@ -50,4 +50,4 @@
 	fuc/.style = {my-red-fill, regular polygon, regular polygon sides=3,shape border rotate=150,minimum height=\glyr },
 	gal/.style={my-yellow-fill,circle,minimum height=\glyr},
   }
-\tikzstyle{every picture}=[auto, node distance=\vdist and \hdist,>=latex,ultra thick,line width = \linew,text=black]
+\tikzstyle{every picture}=[auto, node distance=\vdist and \hdist,>=latex,ultra thick,line width = \linew,text=black,font=\sffamily]
