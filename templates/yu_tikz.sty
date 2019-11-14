@@ -1,4 +1,4 @@
-% Last updated: 2019-10-23 (apply \sffamily font to tikzpicture regardless of the document class)
+% Last updated: 2019-11-14 (white sum)
 
 % Tikz
 \newlength{\hdist}
@@ -38,10 +38,10 @@
     sum/.style n args = {4}{draw, thick, circle, node distance=\sumdist, minimum size=\moduleh, alias=sum,
     my-green-fill,node distance=\longhdist,
     	append after command={
-			node at (sum.north) [port, below=1pt] {$#1$}
-         	node at (sum.west) [port, right=1pt] {$#2$}
-          	node at (sum.south) [port, above=1pt] {$#3$}
-          	node at (sum.east) [port, left=1pt] {$#4$}
+			node at (sum.north) [port, below=1pt] {\color{white}$\bm #1$}
+         	node at (sum.west) [port, right=1pt] {\color{white}$\bm #2$}
+          	node at (sum.south) [port, above=1pt] {\color{white}$\bm #3$}
+          	node at (sum.east) [port, left=1pt] {\color{white}$\bm #4$}
         },
     },
     point/.style = {draw, thick, circle, node distance=\longhdist,minimum width=\moduleh,text=white,my-dark-fill},
