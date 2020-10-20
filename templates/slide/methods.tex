@@ -1,0 +1,41 @@
+% !TEX root = ../main.tex
+
+\begin{frame}{Methods}
+\cols{
+\begin{itemize}
+\item<+-> Fed-batch cell culture illustration
+\begin{itemize}
+	\item<+-> Culture day $k$
+	\item<+-> Sample, record concentration, volume down
+	\item<+-> Add feed 1 {\em according to working volume}, volume up
+	\item<+-> Add feed 2 to meet \gls{glc} target, volume up
+	\item<+-> Reaction continues for 24 h 
+	%(simulate using $\d \bm x/\d t = \bm f_0$)%\nu \bm r$)
+	\item<+-> Repeat for culture day $k+1$
+\end{itemize}
+
+\item<+-> From heuristics-based to
+model-based optimal feeding 
+\begin{itemize}
+	\item Standard protocol:
+	constant %feed ratio to working volume
+	feed-to-volume ratio
+	\item Can we %improve the feeding efficiency based on model?
+	further optimize feeding?
+	\item Add feed precisely 
+	to meet production targets
+	\item Never {\em over}- or
+	{\em under}-feed the culture
+\end{itemize}
+
+\end{itemize}
+}{
+\begin{figure}
+\centering
+\begin{adjustbox}{max width = \linewidth}
+\subimport{../fig/}{flask_animated}
+\end{adjustbox}
+\caption*{Fed-batch bioreactor}
+\end{figure}
+}
+\end{frame}

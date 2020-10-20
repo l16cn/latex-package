@@ -1,0 +1,144 @@
+\documentclass[12pt,handout]{beamer}
+\usepackage{chemformula,
+	l16cn,yu_color,	lipsum,siunitx,ragged2e,colortbl,multicol,import,
+	bibentry,multirow}
+\usepackage[poster]{yu_tikz}
+
+% 114.3 cm = 3.75 ft (45 in); 91.44 cm = 3 ft (36 in)
+\usepackage[orientation=landscape,
+size=custom,width=114.3,height=91.44,scale=1.25,
+debug]{beamerposter}\mode<presentation>{\usetheme{ZH}}
+\usepackage[utf8]{inputenc}
+\newlength{\mylength} % For fancy block defined by beamerthemeZH.sty
+\usepackage{tabularx}\newcolumntype{Z}{>{\centering\arraybackslash}X} % centered tabularx columns
+\loadglsentries{definitions}
+%\setbeamertemplate{itemize/enumerate body begin}{\color{red}} % 2019-11-06
+\setbeamertemplate{itemize subitem}[circle]
+
+%: Poster dimension setup
+% Block dimension
+\newlength{\blockheight}
+\setlength{\blockheight}{1.16\textheight}
+\newlength{\sectionheight}
+\setlength{\sectionheight}{0.3\blockheight}
+\newlength{\rightblockwidth}
+\setlength{\rightblockwidth}{.73\textwidth}
+\newlength{\leftblockwidth}
+\setlength{\leftblockwidth}{.26\textwidth}
+
+% Column dimension
+\newlength{\figwidth}
+\setlength{\figwidth}{0.33\rightblockwidth}
+\newlength{\listwidth}
+\setlength{\listwidth}{0.5\rightblockwidth - 1.2\figwidth}
+
+% Gap
+\def\hgap{\hspace{0.5cm}}
+\def\vgap{\vspace{0.5cm}}
+
+% Custom section titles
+\renewcommand\section[1]{\centering{{\Large #1}}}
+\renewcommand\subsection[1]{\centering{{#1}}}
+\renewcommand\em[1]{\bf\color{red} #1}
+
+% Geometries
+\def\leftcolumnwidth{0.55\linewidth} % Usually put text on the left and figures on the right
+\newcommand{\cols}[2]{
+\begin{columns}
+\column{\leftcolumnwidth}
+#1
+\column{\linewidth - \leftcolumnwidth}
+#2
+\end{columns}
+}
+
+
+\title{\huge Application of Method X to Problem Y: Some Subtitle If Needed}
+
+% Proper author/institute: https://tex.stackexchange.com/questions/17961/how-to-add-several-authors-with-different-affiliations-in-beamer
+\author[]{
+Yu Luo\inst{1}
+\and John Appleseed\inst{2}
+}
+\institute[]{
+\inst{1} \Gls{ud}
+\inst{2} \Gls{columbia}
+}
+\date{\today}
+
+\newlength{\columnheight}
+\setlength{\columnheight}{105cm}%{105cm}
+
+\begin{document}
+%\glsunset{pse}
+%\glsunset{ai}
+%\glsunset{nlp}
+
+\begin{frame}{}
+
+%: Left column
+\begin{minipage}[t][\blockheight][t]{\leftblockwidth}
+%:	Block 1
+\begin{block}{\Large Block 1}
+\vspace{20cm}
+\end{block}
+
+%: 	Block 2
+\begin{block}{\Large Block 2}
+\vspace{55cm}
+\end{block}
+
+%:	References
+\bibliographystyle{alpha}
+\nobibliography{references}
+
+\end{minipage}
+\hfill
+%: Middle column
+\begin{minipage}[t][\blockheight][t]{0.475\rightblockwidth}
+
+%: 	Block 3
+\begin{block}{\Large Block 3}
+\vspace{40cm}
+\end{block}
+
+%:	Block 4
+\begin{block}{\Large Block 4}
+\vspace{20cm}
+\end{block}
+
+%: 	Block 5
+\begin{block}{\Large Block 5}
+\vspace{12cm}
+\end{block}
+
+\end{minipage}
+\hfill
+%: Right column
+\begin{minipage}[t][\blockheight][t]{0.475\rightblockwidth}
+
+%: 	Block 6
+\begin{block}{\Large Block 6}
+\vspace{20cm}
+\end{block}
+
+%: 	Block 7
+\begin{block}{\Large Block 7}
+\cols{
+\begin{itemize}
+	\item Item 1
+	\item Item 2
+	\item Item 3
+\end{itemize}
+}{
+\begin{adjustbox}{width = \linewidth}
+\subimport{fig/}{flask}
+\end{adjustbox}}
+\vspace{43cm}
+\end{block}
+
+
+\end{minipage}
+
+\end{frame}
+\end{document}

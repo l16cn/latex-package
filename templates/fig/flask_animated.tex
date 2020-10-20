@@ -1,19 +1,19 @@
-% !TEX root =  main.tex
+% !TEX root =  ../main.tex
 \begin{tikzpicture}[thick]
 
 \input{flask_core}	
 
 % Animation
-%\sample{0}{}
-%\feedleft{0}{}
-%\feedright{0}{}
-\liquidlevel{0.8}{1}{}{my-dark-fill}
-\sample{1}{}
-%\liquidlevel{0.6}{1}{}
-\feedleft{1}{}
-%\liquidlevel{0.7}{0.5}{}
-\feedright{1}{}
-%\liquidlevel{0.8}{0.4}{}	
+\sample{0}{}
+\feedleft{0}{}
+\feedright{0}{}
+\liquidlevel{0.8}{1}{visible on=<-2>}{my-dark-fill}
+\sample{1}{visible on=<3->}
+\liquidlevel{0.6}{1}{visible on=<3->}{my-dark-fill}
+\feedleft{1}{visible on=<4->}
+\liquidlevel{0.7}{0.5}{visible on=<4->}{my-dark-fill}
+\feedright{1}{visible on=<5->}
+\liquidlevel{0.8}{0.4}{visible on=<5->}{my-dark-fill}
 	
 %\draw[dashed,color=my-light] (bottom-left) arc (180:0:{\bottomradius} and \bottomheightback);	
 %

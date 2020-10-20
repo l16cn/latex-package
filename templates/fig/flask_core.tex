@@ -1,3 +1,4 @@
+% !TEX root =  main.tex
 % Parameters
 \def\topy{3.5}
 \def\topheightback{0.1}%.1}
@@ -12,6 +13,7 @@
 \def\liquidloc{0.7}
 \pgfmathsetmacro\feedleftx{-\neckradius / 3}
 \def\feedheight{1}
+
 
 % Bottom
 \coordinate (bottom-left) at (-\bottomradius,\bottomy);
@@ -31,6 +33,15 @@
 \draw (neck-right) -- (top-right);
 \draw (top-left) arc (180:0:{\neckradius} and \topheightback);
 \draw (top-left) arc (180:360:{\neckradius} and \topheightfront);
+%\fill[color=gray] 
+%	(top-left) --
+%	($(top-left)!0.05!(neck-left)$) arc (180:360:{\neckradius} and \topheightfront)
+%	--
+%	(top-right) arc (360:180:{\neckradius} and \topheightfront);
+
+%% Bottom fill
+%\fill[color=black] (bottom-left) arc (180:0:{\bottomradius} and \bottomheightback) 
+%(bottom-left) arc (180:360:{\bottomradius} and \bottomheightfront);
 
 % Sample
 \newcommand{\sample}[2]{
@@ -53,9 +64,10 @@
 \coordinate (feed-right-start) at ($(feed-right-corner) + (\feedheight,0)$);
 \draw[->,-latex,opacity=#1,#2] (feed-right-start) -- (feed-right-corner) -- (feed-right);
 \draw[,opacity=#1,#2] (feed-right-start) node [right] {Feed 2};}
-
+	
+	
 % Liquid
-\newcommand{\liquidlevel}[3]{
+\newcommand{\liquidlevel}[4]{
 \pgfmathsetmacro\liquidradius{\neckradius * #1 + \bottomradius * (1 - #1)}
 \pgfmathsetmacro\liquidheightback{\topheightback * #1 + \bottomheightback * (1 - #1)}
 \pgfmathsetmacro\liquidheightfront{\topheightfront * #1 + \bottomheightfront * (1 - #1)}
@@ -64,6 +76,6 @@
 \fill[my-light-fill,opacity=#2,#3] 
 	(liquid-left) arc (180:0:{\liquidradius} and \liquidheightback) %-- %;
  	(liquid-left) arc (180:360:{\liquidradius} and \liquidheightfront);
-\fill[my-dark-fill,opacity=#2,#3] 
+\fill[#4,opacity=#2,#3] 
 	(bottom-left) -- (liquid-left) arc (180:360:{\liquidradius} and \liquidheightfront)
 	-- (bottom-right) arc (360:180:{\bottomradius} and \bottomheightfront);}

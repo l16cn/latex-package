@@ -1,0 +1,84 @@
+% !TEX root = main.tex
+\usepackage{l16cn,yu_color,yu_style,import,yu_tikz,multicol,appendixnumberbeamer,multirow}
+\usetikzlibrary{calc}
+\makenoidxglossaries
+\loadglsentries{definitions}
+\renewcommand{\em}{\bf\color{red}}
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}[circle]
+\usepackage{tabularx}\newcolumntype{Z}{>{\centering\arraybackslash}X} % centered tabularx columns
+\input{library}
+
+% Geometries
+\def\leftcolumnwidth{0.75\linewidth} % Usually put text on the left and figures on the right
+\newcommand{\cols}[2]{
+\begin{columns}
+\column{\leftcolumnwidth}
+#1
+\column{\linewidth - \leftcolumnwidth}
+#2
+\end{columns}
+}
+
+% Section page
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+\title[Short Title]
+{Full Presentation Title}
+\subtitle{Subtitle of Your Presentation}
+\author[Yu Luo] % (optional, for multiple authors)
+{
+{\bf Yu~Luo}\inst{1} 
+\and John Appleseed\inst{2}
+}
+\institute[University of Delaware]%{} % (optional)
+{
+  \inst{1}%
+  \gls{ud}%\\
+  \qquad
+  \inst{2}%
+  \gls{columbia}%\\
+}
+\date[\talkdate{}] % (optional)
+{\school{} 
+\rule[-0.4ex]{0.2ex}{1.2em} 
+\talkdate{} \rule[-0.4ex]{0.2ex}{1.2em} 
+\addr{}}
+\subject{Chemical Engineering}
+
+%% Uncomment to preview individual Tikz pictures: https://michaelgoerz.net/notes/creating-eps-files-from-tikz.html
+%\usepackage[psfixbb,graphics,tightpage,active]{preview}
+%\PreviewEnvironment{tikzpicture}
+%\newlength{\imagewidth}
+%\newlength{\imagescale}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+\placelogofalse
+	\subimport{slide/}{acronyms} % List all acronyms first because beamer overlay does not handle acronyms very well
+\section{Introduction}
+	\subimport{slide/}{intro}
+\section{Methods}
+	\subimport{slide/}{methods}
+\section{Results and Discussion}
+	\subimport{slide/}{results}
+\section{Summary and Acknowledgment}
+\placelogotrue
+\subimport{slide/}{summary}
+
+\placelogofalse
+\begin{frame}[allowframebreaks]{References}
+\scriptsize{\bibliographystyle{alpha}\bibliography{references}}
+\end{frame}
+
+\end{document}

@@ -3,32 +3,12 @@
 
 \mode<presentation>
 
-%\definecolor{ETH1}{RGB}%{31,64,122}
-%	{51,51,51}
-%\definecolor{ETH3}{RGB}%{0,105,180}
-%	{51,51,51}
-%\definecolor{ETH6}{RGB}{111,111,110}
-%%\definecolor{ETH8}{RGB}{0,122,146}
-%\definecolor{ETH10}{RGB}%{130,190,30}
-%	{51,51,51}
-%\definecolor{tlg}{RGB}{230,230,230}
-%
-%\definecolor{back}{RGB}{240,240,240}
-%\definecolor{fore}{RGB}{51,51,51}
-%\definecolor{title}{RGB}{255,0,90}
-%
-%\definecolor{cu-dark}{RGB}{25,58,111}
-%\definecolor{cu-light}{RGB}{142,180,227}
-%
-\definecolor{logo}{RGB}{255,255,255}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %It seems many of the following entries do not control any visible Behaviour. All such entries are
 %set to red, so that they are easy to spot if they ever become visible
 
-% Comment to revert serif
-%\usefonttheme{serif}
-%\usefonttheme{structuresmallcapsserif}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
 
 \setbeamercolor{headline}{fg=red,bg=ETH1} % This is the recommended color for Specialist community usage: change to ETH1 for general communication
 \setbeamercolor{footline}{fg=red, bg=red}
@@ -44,7 +24,7 @@
 
 \setbeamercolor*{normal text}{fg=ETH6, bg=tlg}
 \setbeamercolor*{block body}{fg=black, bg=white}
-\setbeamercolor*{block title}{fg=white,bg=my-dark}
+\setbeamercolor*{block title}{fg=white,bg=cu-dark}
 \setbeamerfont{block title}{size=\large,series=\bf}
 \setbeamercolor{upper separation line head}{fg=red}
 
@@ -96,23 +76,13 @@
 %      \begin{column}{.09\paperwidth}
 %      \end{column}
 %      \begin{column}{.675\paperwidth}
-	  \begin{column}{0.95\paperwidth}	
+	  \begin{column}{.9\paperwidth}	
         \vskip4ex
         \raggedleft
         \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
         \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
         \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
         \vskip1ex
-      \end{column}
-%      \begin{column}{.1\paperwidth}
-%        \vskip1cm
-%        \begin{center}
-%          \colorbox{logo}{\includegraphics[width=1\columnwidth]{logo1}}\\
-%          \colorbox{logo}{\includegraphics[width=1\columnwidth]{logo2}}%
-%        \end{center}
-%        \vskip-1.5cm
-%      \end{column}
-      \begin{column}{.0\paperwidth}
       \end{column}
     \end{columns}
   \end{beamercolorbox}
@@ -133,7 +103,7 @@
   \begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{author in head/foot}%
 %    \href{http://cris.cheme.columbia.edu}{cris.cheme.columbia.edu}
 %	Cell Culture Engineering XVI
-	Yu Luo et al. (2020)
+	Yu Luo et al. (2018)
     \hfill
 %    \today
 %	May 6--11, 2018

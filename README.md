@@ -9,13 +9,23 @@ It always annoys me when I start to write a new paper and I have use an old pape
 
 - Templates: [`./templates/`](templates/)
     + Journal: based on the `elsarticle` and `IEEEtran` classes
-    + Beamer: based on the `beamer` class (with a CRIS-Lab style)
+    + Beamer (deck and poster): based on the `beamer` class
 - Other (under construction):
     + Report
     + Book
     + R markdown
 
 ## Versions
+
+#### 2020-10-19
+
+- Use [`./templates/main.tex`](templates/main.tex) to select which _presentation_ file to compile:
+    + [poster.tex](templates/poster.tex): poster presentation
+    + [deck_handout.tex](templates/deck_handout.tex): slide presentation (with no overlay, suitable for drafting and distribution)
+    + [deck_beamer.tex](templates/deck_beamer.tex): slide presentation (with overlay, suitable for presenting)
+- Presentation files are in [`./templates/slide/`](templates/slide/)
+- Updated [./templates/beamerthemeZH.sty](templates/beamerthemeZH.sty): use sans-serif font, change presentation color to grey and white
+- Added [./templates/library.tex](templates/library.tex) for storing presentation metadata
 
 #### 2018-03-30
 
