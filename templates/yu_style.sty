@@ -32,13 +32,34 @@
 
 \newif\ifplacelogo % create a new conditional
 \placelogotrue % set it to true
+
+% Individual logos (2020-10-18)
+\newif\ifculogo
+\culogofalse
+\newif\ifcmulogo
+\cmulogofalse
+\newif\ifuvalogo
+\uvalogofalse
+
 \logo{%
 \ifplacelogo
   \makebox[\paperwidth - 5px]{%
   \hspace{0.1 cm}
-	\includegraphics[height=.85cm]{logo1}%
+%  	\hfill
+	\includegraphics[height=.85cm]{fig/ud_logo}%
+	\hfill
+	\ifculogo
+	\hfill
+	\includegraphics[height=.85cm]{fig/columbia_logo}%
+	\fi
+	\ifcmulogo
     \hfill    
-    \includegraphics[height=.85cm]{logo2}%
+	\includegraphics[height=.85cm]{fig/cmu-wordmark-stacked-r}%
+	\fi
+	\ifuvalogo
+	\hfill
+	\includegraphics[height=.85cm]{fig/logo_uva_wide}%
+	\fi
   }%
 \fi  
 }
