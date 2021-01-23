@@ -37,9 +37,9 @@
 \newif\ifculogo
 \culogofalse
 \newif\ifcmulogo
-\cmulogofalse
+\cmulogotrue
 \newif\ifuvalogo
-\uvalogofalse
+\uvalogotrue
 
 \logo{%
 \ifplacelogo
@@ -47,18 +47,35 @@
   \hspace{0.1 cm}
 %  	\hfill
 	\includegraphics[height=.85cm]{fig/ud_logo}%
-	\hfill
+%	\hfill
+	
 	\ifculogo
 	\hfill
 	\includegraphics[height=.85cm]{fig/columbia_logo}%
 	\fi
+	
 	\ifcmulogo
     \hfill    
 	\includegraphics[height=.85cm]{fig/cmu-wordmark-stacked-r}%
 	\fi
+	
 	\ifuvalogo
 	\hfill
 	\includegraphics[height=.85cm]{fig/logo_uva_wide}%
+	
+	% Add an \hfill if only UD logo is present
+	\else
+		\ifculogo
+		\else
+			\ifcmulogo
+			\else
+				\ifuvalogo
+				\else
+					\hfill
+				\fi
+			\fi
+		\fi
+	
 	\fi
   }%
 \fi  
